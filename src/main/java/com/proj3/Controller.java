@@ -2,7 +2,9 @@ package com.proj3;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,7 @@ public class Controller {
 
     @PostMapping("/addItem")
     public static void addItem(@RequestParam String s){
+        //Not sure of the Http Return status 201
         list.add(s);
     }
 
@@ -42,6 +45,7 @@ public class Controller {
 
     @GetMapping("/findItem")
     public static String findItem(@RequestParam String s){
+        //Not sure of the Http return status 404
         return list.get(list.indexOf(s));
     }
 }
